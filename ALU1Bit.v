@@ -38,7 +38,8 @@ wire wire1, sumWire;
 mux1bit2to1 mux1(b, ~b, op[2], wire1);
 assign g = wire1 & a;
 assign p = wire1 | a;
-adder addermodule(a, wire1, cin, sumWire, cout);  
+adder addermodule(a, wire1, cin, sumWire, cout);
+assign set = sumWire;  
 mux1bit4to1 mux2(g, p, sumWire, less, op[0], op[1], result);
 assign zero = ~result;	//if result is 0, then zero will be 1 or vice-versa.
 
