@@ -30,7 +30,7 @@ endmodule
 
 module ALU1Bit(a, b, cin, less, op, result, cout, set, zero, g, p);
 input a, b, cin, less;
-input [0:2] op;
+input [2:0] op;
 output result, cout, set, zero, g, p;
 
 wire wire1, sumWire;
