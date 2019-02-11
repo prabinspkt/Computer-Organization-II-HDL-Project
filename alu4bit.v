@@ -17,10 +17,12 @@ module ALU4Bit(a, b, cin, less, op, result, cout, set, zero, g, p);
     CLA cla_0(g0, p0, g1, p1, g2, p2, g3, p3, cin, c0, c1, c2, c3, c4, g, p);
 
     // set zero to 1 if the result is 0000 but set it to 0 if the result is not 0000
-    if (result[3:0] == 4'b0000) begin
-        zero = 1;
-    end else begin
-        zero = 0;
+    always @*
+        if (result[3:0] == 4'b0000) begin
+            zero = 1;
+        end else begin
+            zero = 0;
+        end
     end
 
     assign set=mst_sig_bit;
