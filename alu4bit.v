@@ -3,7 +3,8 @@ module ALU4Bit(a, b, cin, less, op, result, cout, set, zero, g, p);
     input cin, less;
     input [2:0] op;
     output [3:0] result;
-    output cout, set, zero, g, p;
+    output reg zero;
+    output cout, set, g, p;
     wire g0, p0, g1, p1, g2, p2, g3, p3, c0, c1, c2, c3, c4, g, p, mst_sig_bit;
     supply0 gnd_wire;    
 
