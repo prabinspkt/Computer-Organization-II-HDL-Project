@@ -1,11 +1,11 @@
-module ALU4Bit(a, b, cin, less, op, result, cout, set, zero, g, p);
+module ALU4Bit(a, b, cin, less, op, result, cout, set, zero, G, P);
     input [3:0] a, b;
     input cin, less;
     input [2:0] op;
     output [3:0] result;
     output reg zero;
     output cout, set, g, p;
-    wire g0, p0, g1, p1, g2, p2, g3, p3, c0, c1, c2, c3, c4, g, p, mst_sig_bit;
+    wire g0, p0, g1, p1, g2, p2, g3, p3, c0, c1, c2, c3, c4, G, P, mst_sig_bit;
     supply0 gnd_wire;    
 
     // use ALI1Bit module for this addition to get value of result
@@ -15,7 +15,7 @@ module ALU4Bit(a, b, cin, less, op, result, cout, set, zero, g, p);
     ALU1Bit alu_3(a[3], b[3], c3, gnd_wire, op, result[3],,mst_sig_bit,, g3, p3);
 
     // call CLA module here. supply the inputs and get the outputs
-    CLA cla_0(g0, p0, g1, p1, g2, p2, g3, p3, cin, c0, c1, c2, c3, c4, g, p);
+    CLA cla_0(g0, p0, g1, p1, g2, p2, g3, p3, cin, c0, c1, c2, c3, c4, G, P);
 
     // set zero to 1 if the result is 0000 but set it to 0 if the result is not 0000
     always @(result)
